@@ -1,0 +1,212 @@
+:root {
+  --color-white: #fff;
+  --color-black: #000;
+  --color-rosso-corsa: #d40000;
+  --color-dark-ou-crimson-red: #9e0000;
+  --color-lightning-yellow: #ffc027;
+
+  --default-font-size: 16;
+  --page-margin: 20;
+  --icon-size: 50;
+  --icon-gap: 15;
+
+  --font-size-title: 20;
+  --font-size-subtitle: 16;
+  --font-size-label: 16;
+  --font-size-field: 18;
+
+  --separator: 20;
+  --form-separator: 10;
+  --field-padding: 15;
+  --field-lines: 5;
+  --field-line-height: 1.5;
+  --form-label-margin: 10;
+  
+  --form-button-height: 40;
+  --form-button-font-size-top: 18;
+  --form-button-font-size-bottom: 16;
+  --form-button-font-width: 100%;
+
+  --form-max-width: 600;
+}
+
+
+@font-face {
+  font-family: 'Bitter';
+  font-style: normal;
+  font-weight: 200;
+  src: local(''),
+       url('../fonts/bitter-v32-latin-200.woff2') format('woff2'),
+       url('../fonts/bitter-v32-latin-200.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Bitter';
+  font-style: normal;
+  font-weight: 500;
+  src: local(''),
+       url('../fonts/bitter-v32-latin-500.woff2') format('woff2'),
+       url('../fonts/bitter-v32-latin-500.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Bitter';
+  font-style: normal;
+  font-weight: 600;
+  src: local(''),
+       url('../fonts/bitter-v32-latin-600.woff2') format('woff2'),
+       url('../fonts/bitter-v32-latin-600.woff') format('woff');
+}
+
+.app {
+  font-family: Bitter, serif;
+  font-weight: 500;
+  color: var(--color-black);
+  background-color: var(--color-white);
+  margin: 0;
+}
+
+.app__view {
+  margin: 0 calc(var(--page-margin)/var(--default-font-size) * 1rem);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.app__header,
+.app__footer {
+  padding: calc(var(--separator)/var(--default-font-size) * 1rem) 0;
+}
+
+.app__brand {
+  display: flex;
+  column-gap: calc(var(--icon-gap)/var(--default-font-size) * 1rem);
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.app__brand::before {
+  content: '';
+  width: calc(var(--icon-size)/var(--default-font-size) * 1rem);
+  height: calc(var(--icon-size)/var(--default-font-size) * 1rem);
+  background: url(../img/pame.svg) left top no-repeat;
+  background-size: cover;
+  display: block;
+}
+
+.app__title {
+  margin: 0;
+  font-size: calc(var(--font-size-title)/var(--default-font-size) * 1rem);
+  line-height: 1.42;
+  font-weight: 600;
+}
+
+.app__subtitle {
+  margin: 0;
+  font-size: calc(var(--font-size-subtitle)/var(--default-font-size) * 1rem);
+  line-height: 1;
+  font-weight: 200;
+}
+
+.app__main {
+  flex-grow: 1;
+  display: flex;
+}
+
+.app__form {
+  margin: auto;
+  width: 100%;
+  max-width: calc(var(--form-max-width)/var(--default-font-size)*1rem);
+}
+
+.form__row + .form__row {
+  margin-top: calc(var(--form-separator)/var(--default-font-size) * 1rem);
+}
+
+.form__label {
+  display: block;
+  font-size: calc(var(--font-size-label)/var(--default-font-size) * 1rem);
+  font-weight: 500;
+  margin-bottom: calc(var(--form-label-margin)/var(--default-font-size) * 1rem);
+}
+
+.form__field {
+  font-size: calc(var(--font-size-field)/var(--default-font-size) * 1rem);
+  width: 100%;
+  padding: calc(var(--field-padding)/var(--default-font-size) * 1rem);
+  box-sizing: border-box;
+  height: calc((var(--field-lines) * var(--font-size-field) * var(--field-line-height) + (var(--field-padding) * 2)) / var(--default-font-size) * 1rem);
+  font-family: inherit;
+  border: 2px dashed var(--color-rosso-corsa);
+  resize: vertical;
+}
+
+.form__field::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  font-size: calc(var(--font-size-field)/1.3/var(--default-font-size)*1rem);
+}
+.form__field::-moz-placeholder { /* Firefox 19+ */
+  font-size: calc(var(--font-size-field)/1.3/var(--default-font-size)*1rem);
+}
+.form__field:-ms-input-placeholder { /* IE 10+ */
+  font-size: calc(var(--font-size-field)/1.3/var(--default-font-size)*1rem);
+}
+.form__field:-moz-placeholder { /* Firefox 18- */
+  font-size: calc(var(--font-size-field)/1.3/var(--default-font-size)*1rem);
+}
+
+.form__trigger {
+  margin: 0 auto;
+  display: block;
+  font-family: inherit;
+  line-height: calc(var(--form-button-height)/var(--default-font-size)*1rem);
+  position: relative;
+  text-align: center;
+  color: var(--color-white);
+  width: var(--form-button-font-width);
+  border: 0;
+  background-color: transparent;
+  font-size: calc(var(--form-button-font-size-top)/var(--default-font-size)*1rem);
+}
+
+.form__trigger::before {
+  content: '';
+  background: linear-gradient(to bottom, var(--color-rosso-corsa), var(--color-dark-ou-crimson-red));
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: calc(var(--form-button-height)/var(--default-font-size)*1rem);
+  width: 100%;
+  z-index: -1;  
+}
+
+.form__trigger-main {
+  display: block;
+  color: var(--color-rosso-corsa);
+  line-height: calc(var(--form-button-height)/1.5/var(--default-font-size)*1rem);
+  font-size: calc(var(--form-button-font-size-bottom)/var(--default-font-size)*1rem);
+}
+
+.footer__attribution {
+  margin: 0;
+  text-align: center;
+  font-weight: 200;
+}
+
+@media screen and (min-width: 768px) {
+  .app {
+    --page-margin: 80;
+    --icon-size: 100;
+    --icon-gap: 20;
+    --font-size-title: 40;
+    --font-size-subtitle: 32;
+    --separator: 40;
+    --font-size-label: 18;
+    --font-size-field: 22;
+    --field-lines: 8;
+
+    --form-button-height: 50;
+    --form-button-font-size-top: 22;
+    --form-button-font-width: 55%;
+  }
+}
